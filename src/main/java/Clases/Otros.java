@@ -1,7 +1,9 @@
 package Clases;
 
+import javax.persistence.Entity;
 import java.util.Scanner;
 
+@Entity
 public class Otros extends NoPerecedero{
 
     private String categoria;
@@ -15,6 +17,8 @@ public class Otros extends NoPerecedero{
         setIva(VALOR_IVA);
 
     }
+
+    public Otros(){}
 
     public Otros(Scanner in){
         super(in);

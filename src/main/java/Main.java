@@ -8,8 +8,6 @@ public class Main {
 
     public static void main(String[] args){
 
-        Inventario.getInstance();
-
         int opcion = 1;
 
         System.out.println("========================================================================");
@@ -41,17 +39,20 @@ public class Main {
                         System.out.println("OpciÃ³n? ");
                         opcion = scannerGlobal.nextInt();
                         scannerGlobal.nextLine();
-                        p = Inventario.getProducto(opcion);
-                        if (opcion!=0 && p != null) {
-                            System.out.println("Producto elegido: "+p.getNombre()+", existencias: "+p.getCantidad());
-                            System.out.println("Elige la nueva cantidad:");
-                            int cant = scannerGlobal.nextInt();
-                            scannerGlobal.nextLine();
-                            p = Inventario.actualizarCantidad(opcion, cant);   //actualiza el mismo producto del inventario
-                            //NO ES NECESARIA LA ACTUALIZACIÃ“N DESDE INVENTARIO!!
-                            System.out.println("Producto actualizado: "+p.getNombre()+", Nueva cantidad en almacÃ©n: " + p.getCantidad());
-                            System.out.println();
-                            pause();
+                        if(opcion!=0){
+                            p = Inventario.getProducto(opcion);
+
+                            if (p != null) {
+                                System.out.println("Producto elegido: "+p.getNombre()+", existencias: "+p.getCantidad());
+                                System.out.println("Elige la nueva cantidad:");
+                                int cant = scannerGlobal.nextInt();
+                                scannerGlobal.nextLine();
+                                p = Inventario.actualizarCantidad(opcion, cant);   //actualiza el mismo producto del inventario
+                                //NO ES NECESARIA LA ACTUALIZACIÃ“N DESDE INVENTARIO!!
+                                System.out.println("Producto actualizado: "+p.getNombre()+", Nueva cantidad en almacÃ©n: " + p.getCantidad());
+                                System.out.println();
+                                pause();
+                            }
                         }
                     } opcion=1; break;
                 case 3: 	//aÃ±adir un nuevo producto al almancÃ©n

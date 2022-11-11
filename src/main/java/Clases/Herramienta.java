@@ -2,8 +2,10 @@ package Clases;
 
 import Interfaces.Enviable;
 
+import javax.persistence.Entity;
 import java.util.Scanner;
 
+@Entity
 public class Herramienta extends NoPerecedero implements Enviable {
 
     private final double VALOR_IVA = 0.4;
@@ -14,6 +16,8 @@ public class Herramienta extends NoPerecedero implements Enviable {
         super(codigo, nombre, precio, cantidad, peso);
         setIva(VALOR_IVA);
     }
+
+    public Herramienta(){}
 
     public Herramienta(Scanner in){
         super(in);

@@ -1,7 +1,9 @@
 package Clases;
 
+import javax.persistence.Entity;
 import java.util.Scanner;
 
+@Entity
 public class FrutaHortaliza extends Perecedero{
 
     private String origen;
@@ -14,6 +16,8 @@ public class FrutaHortaliza extends Perecedero{
 
         setIva(VALOR_IVA);
     }
+
+    public FrutaHortaliza(){}
 
     public FrutaHortaliza(Scanner in) {
         super(in);

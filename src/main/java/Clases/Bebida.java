@@ -1,7 +1,9 @@
 package Clases;
 
+import javax.persistence.Entity;
 import java.util.Scanner;
 
+@Entity
 public class Bebida extends Perecedero{
 
     private String graduacion;
@@ -14,6 +16,8 @@ public class Bebida extends Perecedero{
 
         setIva(VALOR_IVA);
     }
+
+    public Bebida(){}
 
     public Bebida(Scanner in) {
         super(in);

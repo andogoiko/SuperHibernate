@@ -1,9 +1,12 @@
 package Clases;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Scanner;
 
-public abstract class Producto implements Serializable {
+@Entity
+@Table(name = "Producto")
+public class Producto implements Serializable {
 
     private double iva;
     private int codigo;
@@ -21,8 +24,6 @@ public abstract class Producto implements Serializable {
     }
 
     public Producto(Scanner in){
-
-        codigo = Inventario.tamanyo() + 1;
 
         System.out.println("Introduce el nombre del producto (string):");
 
@@ -86,6 +87,8 @@ public abstract class Producto implements Serializable {
     public Producto(){
     }
 
+
+    @Column(name = "iva")
     public double getIva() {
         return iva;
     }
@@ -94,6 +97,9 @@ public abstract class Producto implements Serializable {
         this.iva = iva;
     }
 
+    @Id
+    @GeneratedValue
+    @Column(name = "codigo", unique = true , nullable = false )
     public int getCodigo() {
         return codigo;
     }
@@ -102,6 +108,7 @@ public abstract class Producto implements Serializable {
         this.codigo = codigo;
     }
 
+    @Column(name = "nombre", length = 50)
     public String getNombre() {
         return nombre;
     }
@@ -110,6 +117,7 @@ public abstract class Producto implements Serializable {
         this.nombre = nombre;
     }
 
+    @Column(name = "precio")
     public double getPrecio() {
         return precio;
     }
@@ -118,6 +126,7 @@ public abstract class Producto implements Serializable {
         this.precio = precio;
     }
 
+    @Column(name = "cantidad")
     public int getCantidad() {
         return cantidad;
     }
@@ -126,6 +135,7 @@ public abstract class Producto implements Serializable {
         this.cantidad = cantidad;
     }
 
+    @Column(name = "peso")
     public double getPeso() {
         return peso;
     }

@@ -2,8 +2,10 @@ package Clases;
 
 import Interfaces.Enviable;
 
+import javax.persistence.Entity;
 import java.util.Scanner;
 
+@Entity
 public abstract class Perecedero extends Producto implements Enviable {
 
     private String fechacad;
@@ -15,6 +17,8 @@ public abstract class Perecedero extends Producto implements Enviable {
         super(codigo, nombre, precio, cantidad, peso);
         this.fechacad = fechacad;
     }
+
+    public Perecedero(){}
 
     public Perecedero (Scanner in){
         super(in);

@@ -1,8 +1,10 @@
 package Clases;
 
+import javax.persistence.Entity;
 import java.util.Scanner;
 
-public class Lacteo extends  Perecedero{
+@Entity
+public class Lacteo extends  Perecedero {
 
     private String lote;
     private final double VALOR_IVA = 0.04;
@@ -14,6 +16,8 @@ public class Lacteo extends  Perecedero{
 
         setIva(VALOR_IVA);
     }
+
+    public Lacteo(){}
 
     public Lacteo(Scanner in) {
         super(in);
